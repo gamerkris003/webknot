@@ -9,4 +9,6 @@ public interface ProjectService {
     void removeEmployeeFromProject(Long projectId, Long employeeId);
     void setProjectStatus(Long projectId, String status);
     ProjectDTO getProjectDetails(Long projectId);
+
+    String deleteProject(Long projectId);
 }

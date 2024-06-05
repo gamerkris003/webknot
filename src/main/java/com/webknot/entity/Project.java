@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -11,6 +13,8 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
+@RestController
+@RequestMapping("/api/projects")
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

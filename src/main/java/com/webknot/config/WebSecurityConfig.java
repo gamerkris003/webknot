@@ -49,11 +49,11 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/auth/signup").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/employees/**").permitAll()//.hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/api/employees/**").permitAll()//.hasRole("ADMIN")
-                       .requestMatchers("/api/projects/**").permitAll()//hasRole("ADMIN")
-                        .requestMatchers("/api/projects/signup").permitAll()
-                        .requestMatchers("/api/allocations/**").hasRole("ADMIN")
+                        .requestMatchers("/api/projects").authenticated()
+                        .requestMatchers("/api/allocations/**").permitAll()//.hasRole("ADMIN")
+                        .requestMatchers("/api/leaverequest/**").permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));

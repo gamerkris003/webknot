@@ -13,7 +13,8 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
-    @PostMapping
+    @PostMapping("/createproject")
+    //@PreAuthorize(".hasRole(ADMIN)")
     public ProjectDTO createProject(@RequestBody ProjectDTO projectDTO) {
         return projectService.createProject(projectDTO);
     }
@@ -37,4 +38,11 @@ public class ProjectController {
     public ProjectDTO getProjectDetails(@PathVariable Long projectId) {
         return projectService.getProjectDetails(projectId);
     }
+
+    @GetMapping("/delete/{projectId}")
+    public String deleteProject(@PathVariable Long projectId) {
+        return projectService.deleteProject(projectId);
+    }
+
+
 }

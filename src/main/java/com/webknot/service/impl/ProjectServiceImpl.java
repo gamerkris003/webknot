@@ -54,6 +54,13 @@ public class ProjectServiceImpl implements ProjectService {
         return mapToDTO(project);
     }
 
+
+    public String deleteProject(Long projectId) {
+        projectRepository.deleteById(projectId);
+
+        return ("Deleted");
+    }
+
     private ProjectDTO mapToDTO(Project project) {
         ProjectDTO dto = new ProjectDTO();
         dto.setId(project.getId());
@@ -62,6 +69,7 @@ public class ProjectServiceImpl implements ProjectService {
         dto.setEndClient(project.getEndClient());
         dto.setDescription(project.getDescription());
         dto.setStatus(project.getStatus());
+
         return dto;
     }
 }

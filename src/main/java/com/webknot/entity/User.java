@@ -1,14 +1,19 @@
 package com.webknot.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +24,5 @@ public class User {
     private String role;
 
     public User() {
-
     }
-
-    public void setRoles(String roleUser) {
-    }
-
-    // getters and setters
 }
